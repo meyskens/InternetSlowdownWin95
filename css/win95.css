@@ -288,6 +288,7 @@ li a {
 	width: 100%;
 	height: 16px;
 	padding: 1px 0;
+	margin: 0;
 }
 
 .explorer .explorerTitleBar img {
@@ -350,7 +351,7 @@ li a {
 
 .explorer .explorerMenuBar {
 	width: 100%;
-	padding: 1px 0;
+	padding: 0;
 	margin: 0;
 }
 
