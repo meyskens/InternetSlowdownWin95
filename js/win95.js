@@ -160,8 +160,7 @@ WIN95.explorer.prototype = {
 		if ($('.explorer').last().length) {
 			position = [
 				$('.explorer').last().offset().left,
-				$('.explorer').last().offset().top
-					- $('.explorer').last().height()
+				$('.explorer').last().offset().top + 12
 			]
 		}
 		$(Mustache.render(
@@ -180,12 +179,30 @@ WIN95.explorer.prototype = {
 			$(this).find('.explorerStatusBarRight').width(width - 149)
 		})
 		.css({
+			'position': 'absolute',
 			'left': position[0],
 			'top':  position[1]
 		})
 		.appendTo(renderTarget).resize()
-		.find('.explorerTitleBarClose').on('click', function() {
+		this.postRender()
+	},
+	postRender: function() {
+		$('.explorerTitleBarClose').unbind().click(function() {
 			$(this).parent().parent().parent().remove()
+		})
+		$('.explorerMenuBar li').unbind().mouseenter(function() {
+			if ($('.explorerMenuBar li[data-open=true]').length) {
+				$(this).mousedown()
+			}
+		})
+		$('.explorerMenuBar li').mousedown(function() {
+			$('.explorerMenuBar li').attr('data-open', 'false')
+			if ($(this).attr('data-open') === 'true') {
+				$(this).attr('data-open', 'false')
+			}
+			else {
+				$(this).attr('data-open', 'true')
+			}
 		})
 	}
 }

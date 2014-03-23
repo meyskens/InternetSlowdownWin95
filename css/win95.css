@@ -357,13 +357,16 @@ li a {
 .explorer .explorerMenuBar li {
 	list-style: none;
 	font-size: 11px;
-	display: inline;
-	margin-left: 6px;
+	display: inline-block;
+	padding: 2px 3px;
 }
 
 .explorer .explorerMenuBar li[data-open=true] {
-	color: #FFF !important;
 	background: #0003A0;
+}
+
+.explorer .explorerMenuBar li[data-open=true] a {
+	color: #FFF !important;
 }
 
 .explorer .explorerContents {
