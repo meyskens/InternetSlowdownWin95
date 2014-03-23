@@ -116,6 +116,7 @@ WIN95.icon.prototype = {
 			$('.explorer').show()
 		})
 		.draggable({
+			containment: 'window',
 			start: function() {
 				$(this).attr('data-status', 'dragging')
 			},
@@ -132,7 +133,9 @@ WIN95.icon.prototype = {
  */
 
 $('.explorer')
-	.draggable()
+	.draggable({
+		containment: 'window'
+	})
 	.resizable()
 	.resize(function() {
 		var height = $(this).height() - 60
