@@ -1,0 +1,368 @@
+@font-face {
+	font-family: 'WINMenu';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../woff/WINMenu.woff') format('woff');
+}
+@font-face {
+	font-family: 'WINDialog';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../woff/WINDialog.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'PragmataFlash12';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../woff/PragmataFlash12.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'micross';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../woff/micross.woff') format('woff');
+}
+
+* {
+	-webkit-font-smoothing: none;
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+	-webkit-user-select: none;
+	user-select: none;
+	-moz-user-select: none;
+	cursor: default;
+	outline: none;
+}
+
+body {
+	background: #4BA0A0;
+	margin: 0;
+	font-family: 'micross';
+	overflow: hidden;
+	position: fixed !important;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+}
+
+li a {
+	color: #000;
+	text-decoration: none;
+}
+
+/*
+ * Taskbar
+ */
+
+#taskBar {
+	background: #BBC0C4;
+	height: 20px;
+	padding: 3px 0;
+	border-top: 1px solid #FFF;
+	box-shadow: 0 -1px #BBC0C4;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 1;
+}
+
+#taskBar #startButton {
+	width: 52px;
+	height: 19px;
+	border-top: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+	border-right: 1px solid #030303;
+	border-bottom: 1px solid #030303;
+	box-shadow: inset -1px -1px #777777;
+	margin-left: 3px;
+	float: left;
+}
+
+#taskBar #startButton[data-open=true] {
+	background: #BBC0C4;
+	border-top: 2px solid #000;
+	border-left: 2px solid #000;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	box-shadow: none;
+}
+
+#taskBar #startButton img {
+	width: 16px;
+	height: auto;
+	margin: 2px 0 0 2px;
+	float: left;
+}
+
+#taskBar #startButton span.startButtonText {
+	margin: 1px 0 0 2px;
+	display: inline;
+	float: left;
+	font-size: 18px;
+	font-family: 'WINDialog';
+}
+
+#taskBar #startButton span.startButtonDotted:active {
+	border: 1px dotted #000;
+	width: 52px;
+	height: 10px;
+}
+
+#taskBar #clock {
+	width: 61px;
+	height: 19px;
+	border-top: 1px solid #777777;
+	border-left: 1px solid #777777;
+	border-right: 1px solid #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	float: right;
+	text-align: center;
+	margin-right: 3px;
+}
+
+#taskBar #clock span {
+	font-family: 'PragmataFlash12';
+	font-size: 11px;
+}
+
+/*
+ * Start menu
+ */
+
+#startMenu {
+	width: 160px;
+	height: 235px;
+	background: #BBC0C4;
+	box-shadow: 2px 2px 1px #362B2B;
+	border-top: 2px solid #F9F9F9;
+	border-left: 2px solid #F9F9F9;
+	position: absolute;
+	left: 2px;
+	bottom: 26px;
+	z-index: 2;
+	display: none;
+}
+
+#startMenu #startMenuLeft {
+	background: #808080;
+	width: 21px;
+	height: 100%;
+	background-image: url('../img/ui/startMenuLeft.png');
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	float: left;
+	display: inline;
+}
+
+#startMenu #startMenuRight {
+	float: left;
+	display: inline;
+	list-style: none;
+	width: 137px;
+	padding: 0;
+	margin: 0;
+}
+
+#startMenu #startMenuRight li {
+	height: 24px;
+	padding: 2px 0 6px 5px;
+	font-size: 11px;
+	margin: 0;
+}
+
+#startMenu #startMenuRight li:hover {
+	background: #0003A0;
+	color: #FFF !important;
+}
+
+#startMenu #startMenuRight li img {
+	width: 32px;
+}
+
+#startMenu #startMenuRight li a {
+	vertical-align: 13px;
+	margin-left: 5px;
+	display: inline-block;
+}
+
+#startMenu #startMenuRight li .startMenuArrow {
+	font-size: 8px;
+	text-align: right;
+	float: right;
+	margin: 7px 4px 0 0;
+}
+
+#startMenu #startMenuRight hr {
+	margin: 4px 0 3px 0;
+}
+
+/*
+ * Desktop
+ */
+
+#desktopIcons {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#desktopIcons .icon span {
+	color: #FFF;
+}
+
+.icon {
+	max-width: 80px;
+	padding: 10px;
+	z-index: 1;
+	float: left;
+}
+
+.icon img {
+	margin: 0 auto;
+	display: block;
+	padding: 0 0 5px 0;
+	width: 32px;
+	height: 32px;
+}
+
+.icon span {
+	display: block;
+	border: 1px solid transparent;
+	text-align: center;
+	font-size: 11px;
+	margin: 0 auto;
+}
+
+.icon[data-status=selected] img {
+}
+
+.icon[data-status=selected] span {
+	background: #0003A0;
+	border: 1px dotted #FFFF03;
+	color: #FFF;
+}
+
+.icon[data-status=dragging] img {
+	opacity: 0.5;
+}
+
+.icon[data-status=dragging] span {
+	color: #000;
+}
+
+/*
+ * Explorer
+ */
+
+.explorer {
+	width: 500px;
+	height: 400px;
+	background: #BBC0C4;
+	margin: 10px;
+	border-top: 1px solid #FFF;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #7B7F83;
+	border-bottom: 1px solid #7B7F83;
+	box-shadow: 1px 0 #000000, 0 1px #000000, 0 -1px #BBC0C4, -1px 0 #BBC0C4;
+	padding: 2px 3px;
+	position: fixed;
+	z-index: 4;
+	display: none;
+	min-width: 200px;
+	min-height: 60px;
+}
+
+.explorer .explorerTitleBar {
+	background: #0003A0;
+	width: 100%;
+	height: 16px;
+	padding: 1px 0;
+}
+
+.explorer .explorerTitleBar img {
+	margin-left: 1px;
+}
+
+.explorer .explorerTitleBar span {
+	color: #FFF;
+	font-family: 'WINDialog';
+	font-size: 17px;
+	position: relative;
+	bottom: 4px;
+}
+
+.explorer .explorerTitleBarButtons {
+	float: right;
+	margin: 0 3px 0 0;
+	position: relative;
+	bottom: 1px;
+}
+
+.explorer .explorerTitleBarButtons div {
+	width: 13px;
+	height: 11px;
+	border-top: 1px solid #FFF;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #7B7F83;
+	border-bottom: 1px solid #7B7F83;
+	box-shadow: 1px 1px #000;
+	display: inline-block;
+	background-color: #BBC0C4;
+	background-repeat: no-repeat;
+}
+
+.explorer .explorerTitleBarButtons div:active {
+	box-shadow: inset 1px 0 #7B7F83, inset 0 1px #7B7F83;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	background-position: 1px 1px;
+}
+
+.explorer .explorerTitleBarMinimize {
+	background-image: url('../img/ui/minimize.png');
+}
+
+.explorer .explorerTitleBarMaximize {
+	background-image: url('../img/ui/maximize.png');
+	margin-left: -3px;
+}
+
+.explorer .explorerTitleBarClose {
+	background-image: url('../img/ui/close.png');
+	margin-left: -2px;
+}
+
+.explorer .explorerMenuBar {
+	width: 100%;
+	padding: 1px 0;
+	margin: 0;
+}
+
+.explorer .explorerMenuBar li {
+	list-style: none;
+	font-size: 11px;
+	display: inline;
+	margin-left: 6px;
+}
+
+.explorer .explorerMenuBar li[data-open=true] {
+
+}
+
+.explorer .explorerContents {
+	background: #FFF;
+	box-shadow: inset 1px 0 #000, inset 0 1px #000, 1px 0 #FFF, 0 1px #FFF;
+	border-top: 1px solid #7B7F83;
+	border-left: 1px solid #7B7F83;
+	border-right: 1px solid #BBC0C4;
+	border-bottom: 1px solid #BBC0C4;
+	overflow: scroll;
+}
