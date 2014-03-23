@@ -212,6 +212,10 @@ li a {
 	left: 0;
 }
 
+#desktopIcons .icon {
+	float: none;
+}
+
 #desktopIcons .icon span {
 	color: #FFF;
 }
