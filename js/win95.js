@@ -125,7 +125,7 @@ WIN95.icon.prototype = {
 			var explorer = new WIN95.explorer
 			explorer.set({
 				ID: 'explorer',
-				image: 'regedit_201',
+				image: _this.image,
 				title: _this.text
 			}).render('#desktop')
 		})
