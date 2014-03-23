@@ -24,7 +24,7 @@ var currentTime = function() {
 // Start button
 var startButton = $('#startButton')
 
-startButton.click(function() {
+startButton.mousedown(function() {
 	$('.icon').attr('data-status', 'normal')
 	var isOpen = $(this).attr('data-open')
 	if (isOpen === 'true') {
@@ -76,7 +76,7 @@ $(document).mousedown(function(e) {
 	if (!d) {
 		$('.icon').attr('data-status', 'normal')
 		if (startButton.attr('data-open') === 'true') {
-			startButton.click()
+			startButton.mousedown()
 		}
 	}
 })
@@ -86,9 +86,9 @@ $(document).bind('contextmenu', function(e) {
 })
 
 WIN95.icon = function() {
-	this.ID = null,
-	this.image = 'img/icons/ftmcl_4500.ico',
-	this.text = null
+	this.ID    = null
+	this.image = 'ftmcl_4500'
+	this.text  = 'New'
 }
 
 WIN95.icon.prototype = {
@@ -96,34 +96,40 @@ WIN95.icon.prototype = {
 	set: function(data) {
 		this.ID     = data.ID
 		this.text   = data.text
-		this.image = 'img/icons/' + data.image + '.ico'
+		this.image  = data.image
 		return this
 	},
+	draggableOptions: {
+		containment: 'window',
+		start: function() {
+			$(this).attr('data-status', 'dragging')
+		},
+		stop: function() {
+			$(this).attr('data-status', 'normal')
+		}
+	},
 	render: function(renderTarget) {
-		var appendTarget
+		var _this = this
 		$(Mustache.render(
 			WIN95.templates.icon, {
-				ID: this.ID,
+				ID:    this.ID,
 				image: this.image,
-				text: this.text
+				text:  this.text
 			}
 		))
-		.click(function() {
+		.mousedown(function() {
 			$('.icon').attr('data-status', 'normal')
 			$(this).attr('data-status', 'selected')
 		})
 		.dblclick(function() {
-			$('.explorer').show()
+			var explorer = new WIN95.explorer
+			explorer.set({
+				ID: 'explorer',
+				image: 'regedit_201',
+				title: _this.text
+			}).render('#desktop')
 		})
-		.draggable({
-			containment: 'window',
-			start: function() {
-				$(this).attr('data-status', 'dragging')
-			},
-			stop: function() {
-				$(this).attr('data-status', 'normal')
-			}
-		})
+		.draggable(this.draggableOptions)
 		.appendTo(renderTarget)
 	}
 }
@@ -132,20 +138,56 @@ WIN95.icon.prototype = {
  * Explorer
  */
 
-$('.explorer')
-	.draggable({
+WIN95.explorer = function() {
+	this.ID    = null
+	this.image = 'regedit_201'
+	this.title = 'Explorer'
+}
+
+WIN95.explorer.prototype = {
+	constructor: WIN95.explorer,
+	set: function(data) {
+		this.ID    = data.ID
+		this.image = data.image
+		this.title = data.title
+		return this
+	},
+	draggableOptions: {
 		containment: 'window'
-	})
-	.resizable()
-	.resize(function() {
-		var height = $(this).height() - 60
-		$(this).find('.explorerContents').height(height)
-	})
-	.resize()
-
-
-$('.explorerTitleBarClose').click(function() {
-	$(this).parent().parent().parent().hide()
-})
+	},
+	render: function(renderTarget) {
+		var position = [70, 70]
+		if ($('.explorer').last().length) {
+			position = [
+				$('.explorer').last().offset().left,
+				$('.explorer').last().offset().top
+					- $('.explorer').last().height()
+			]
+		}
+		$(Mustache.render(
+			WIN95.templates.explorer, {
+				ID:    this.ID,
+				image: this.image,
+				title: this.title
+			}
+		))
+		.draggable(this.draggableOptions)
+		.resizable()
+		.resize(function() {
+			var height = $(this).height()
+			var width  = $(this).width()
+			$(this).find('.explorerContents').height(height - 60)
+			$(this).find('.explorerStatusBarRight').width(width - 149)
+		})
+		.css({
+			'left': position[0],
+			'top':  position[1]
+		})
+		.appendTo(renderTarget).resize()
+		.find('.explorerTitleBarClose').on('click', function() {
+			$(this).parent().parent().parent().remove()
+		})
+	}
+}
 
 })
