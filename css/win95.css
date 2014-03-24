@@ -58,7 +58,7 @@ body {
 	background: #4BA0A0;
 	margin: 0;
 	padding: 0;
-	font-family: 'micross';
+	font-family: 'micross' !important;
 	overflow: hidden;
 	position: fixed !important;
 	z-index: 0;
@@ -67,6 +67,7 @@ body {
 }
 
 textarea {
+	font-family: 'micross' !important;
 	-webkit-user-select: text;
 	user-select: text;
 	-moz-user-select: text;
@@ -252,7 +253,6 @@ li a {
 	padding: 10px;
 	z-index: 1;
 	float: left;
-	position: absolute;
 }
 
 .icon img {
@@ -469,7 +469,7 @@ li a {
 }
 
 ::selection {
-	background: #0514A7;
+	background: #0514A7 !important;
 	color: #FFF;
 }
 ::-moz-selection {
