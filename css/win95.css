@@ -1,3 +1,8 @@
+/*
+ * Fonts
+ */
+
+
 @font-face {
 	font-family: 'WINMenu';
 	font-style: normal;
@@ -25,6 +30,10 @@
 	src: url('../woff/micross.woff') format('woff');
 }
 
+/*
+ * General elements
+ */
+
 * {
 	-webkit-font-smoothing: none;
 	image-rendering: optimizeSpeed;
@@ -40,9 +49,15 @@
 	outline: none;
 }
 
+html {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	background: #4BA0A0;
 	margin: 0;
+	padding: 0;
 	font-family: 'micross';
 	overflow: hidden;
 	position: fixed !important;
@@ -51,9 +66,20 @@ body {
 	height: 100%;
 }
 
+textarea {
+	-webkit-user-select: text;
+	user-select: text;
+	-moz-user-select: text;
+	cursor: text;
+}
+
 li a {
 	color: #000;
 	text-decoration: none;
+}
+
+.full-width-hack {
+	padding-right: 20px;
 }
 
 /*
@@ -221,10 +247,12 @@ li a {
 }
 
 .icon {
-	max-width: 80px;
+	width: 80px;
+	height: 60px;
 	padding: 10px;
 	z-index: 1;
 	float: left;
+	position: absolute;
 }
 
 .icon img {
@@ -241,6 +269,23 @@ li a {
 	text-align: center;
 	font-size: 11px;
 	margin: 0 auto;
+}
+
+.icon textarea {
+	width: 75px;
+	height: 1em;
+	text-align: center;
+	font-size: 11px;
+	display: none;
+	margin: 0 auto;
+	resize: none;
+	min-height: 1em;
+	color: #000;
+	border: 1px solid #000;
+	padding: 1px 2px;
+	outline: none;
+	overflow: hidden;
+	background: #FFF;
 }
 
 .icon[data-status=selected] img {
@@ -421,4 +466,13 @@ li a {
 	border-left: 1px solid #7B7F83;
 	border-right: 1px solid #FFF;
 	border-bottom: 1px solid #FFF;
+}
+
+::selection {
+	background: #0514A7;
+	color: #FFF;
+}
+::-moz-selection {
+	background: #0514A7;
+	color: #FFF;
 }

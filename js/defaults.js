@@ -10,21 +10,24 @@ WIN95.desktopIcons.myComputer = new WIN95.icon()
 WIN95.desktopIcons.myComputer.set({
 	ID: 'myComputer',
 	image: 'explorer_100',
-	text: 'My Computer'
+	text: 'My Computer',
+	rename: true
 }).render('#desktopIcons')
 
 WIN95.desktopIcons.networkNeighborhood = new WIN95.icon()
 WIN95.desktopIcons.networkNeighborhood.set({
 	ID: 'networkNeighborhood',
 	image: 'shell32_18',
-	text: 'Network Neighborhood'
+	text: 'Network Neighborhood',
+	rename: true
 }).render('#desktopIcons')
 
 WIN95.desktopIcons.recycleBin = new WIN95.icon()
 WIN95.desktopIcons.recycleBin.set({
 	ID: 'recyleBin',
 	image: 'shell32_32',
-	text: 'Recycle Bin'
+	text: 'Recycle Bin',
+	rename: false
 }).render('#desktopIcons')
 
 /*

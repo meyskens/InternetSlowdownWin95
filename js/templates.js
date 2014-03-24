@@ -4,6 +4,7 @@ WIN95.templates = {
 	'<div class="icon" data-icon="{{ID}}" data-status="normal">'
 		+ '<img src="img/icons/{{image}}.ico" alt="" draggable="false" />'
 		+ '<span>{{text}}</span>'
+		+ '<textarea></textarea>'
 	+ '</div>',
 
 	explorer:
