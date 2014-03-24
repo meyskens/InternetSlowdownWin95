@@ -7,7 +7,7 @@ WIN95.templates = {
 	+ '</div>',
 
 	explorer:
-	'<div class="explorer" data-explorer="{{ID}}">'
+	'<div class="explorer" data-explorer="{{ID}}" data-focus="true">'
 		+ '<div class="explorerTitleBar">'
 			+ '<img src="img/icons/{{image}}.ico" alt="" />'
 			+ '<span>{{title}}</span>'

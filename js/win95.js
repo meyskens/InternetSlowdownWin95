@@ -153,7 +153,8 @@ WIN95.explorer.prototype = {
 		return this
 	},
 	draggableOptions: {
-		containment: 'window'
+		containment: 'window',
+		handle: '.explorerTitleBar'
 	},
 	render: function(renderTarget) {
 		var position = [70, 70]
@@ -170,6 +171,7 @@ WIN95.explorer.prototype = {
 				title: this.title
 			}
 		))
+		.appendTo(renderTarget)
 		.draggable(this.draggableOptions)
 		.resizable()
 		.resize(function() {
@@ -178,12 +180,17 @@ WIN95.explorer.prototype = {
 			$(this).find('.explorerContents').height(height - 60)
 			$(this).find('.explorerStatusBarRight').width(width - 149)
 		})
+		.mousedown(function() {
+			$('.explorer').attr('data-focus', 'false')
+			$(this).attr('data-focus', 'true')
+		})
 		.css({
 			'position': 'absolute',
 			'left': position[0],
 			'top':  position[1]
 		})
-		.appendTo(renderTarget).resize()
+		.resize()
+		.mousedown()
 		this.postRender()
 	},
 	postRender: function() {
