@@ -17,6 +17,7 @@ WIN95.explorer.prototype = {
 		handle: '.explorerTitleBar'
 	},
 	render: function(renderTarget) {
+		var _this = this
 		var position = [70, 70]
 		if ($('.explorer').last().length) {
 			position = [
@@ -41,8 +42,15 @@ WIN95.explorer.prototype = {
 			$(this).find('.explorerStatusBarRight').width(width - 149)
 		})
 		.mousedown(function() {
-			$('.explorer').attr('data-focus', 'false')
-			$(this).attr('data-focus', 'true')
+			$('.explorer').attr('data-status', 'normal')
+			$('.taskBarItem').attr('data-status', 'normal')
+			$(this).attr('data-status', 'selected')
+			$('[data-taskBarItem=' + _this.ID + ']')
+				.attr('data-status', 'selected')
+		})
+		.on('remove', function() {
+			console.log(_this.ID)
+			$('[data-taskBarItem=' + _this.ID + ']').remove()
 		})
 		.css({
 			'position': 'absolute',
@@ -51,6 +59,12 @@ WIN95.explorer.prototype = {
 		})
 		.resize()
 		.mousedown()
+		var taskBarItem = new WIN95.taskBarItem()
+		taskBarItem.set({
+			ID:    this.ID,
+			title: this.title,
+			image: this.image
+		}).render()
 		this.postRender(element)
 	},
 	postRender: function(element) {

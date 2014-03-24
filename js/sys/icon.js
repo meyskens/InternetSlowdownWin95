@@ -72,9 +72,13 @@ WIN95.icon.prototype = {
 		})
 		.dblclick(function() {
 			$('.icon').attr('data-status', 'normal')
+			if ($('[data-window=' + _this.ID + ']').length) {
+				$('[data-window=' + _this.ID + ']').mousedown()
+				return
+			}
 			var explorer = new WIN95.explorer
 			explorer.set({
-				ID: 'explorer',
+				ID:    _this.ID,
 				image: _this.image,
 				title: _this.text
 			}).render('#desktop')

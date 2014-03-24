@@ -17,6 +17,14 @@ var currentTime = function() {
 	return hours + ':' + minutes + ' ' + ampm
 }
 
+// Generate a unique identifier for every UI element.
+WIN95.getUniqueID = function() {
+	if (!WIN95.IDCounter) {
+		WIN95.IDCounter = 1
+	}
+	return ++WIN95.IDCounter
+}
+
 /*
  * Taskbar
  */
@@ -36,6 +44,43 @@ startButton.mousedown(function() {
 		startMenu.show()
 	}
 })
+
+// Taskbar items
+WIN95.taskBarItem = function() {
+	this.ID    = null,
+	this.image = null,
+	this.title = null
+}
+
+WIN95.taskBarItem.prototype = {
+	constructor: WIN95.taskBarItem,
+	set: function(data) {
+		this.ID    = data.ID
+		this.image = data.image
+		this.title = data.title
+		return this
+	},
+	render: function() {
+		var _this = this
+		var element = $(Mustache.render(
+			WIN95.templates.taskBarItem, {
+				ID:    this.ID,
+				image: this.image,
+				title: this.title
+			}
+		))
+		.mousedown(function(e) {
+			$('.taskBarItem').attr('data-status', 'normal')
+			$(this).attr('data-status', 'selected')
+			$('[data-window=' + _this.ID + ']').mousedown()
+		})
+		.appendTo('#taskBarItems')
+		.attr('data-status', 'selected')
+		this.postRender(element)
+	},
+	postRender: function(element) {
+	}
+}
 
 // Taskbar clock
 setInterval(function() {

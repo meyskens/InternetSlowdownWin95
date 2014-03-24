@@ -34,6 +34,15 @@
  * General elements
  */
 
+::selection {
+	background: #0514A7 !important;
+	color: #FFF;
+}
+::-moz-selection {
+	background: #0514A7;
+	color: #FFF;
+}
+
 * {
 	-webkit-font-smoothing: none;
 	image-rendering: optimizeSpeed;
@@ -88,11 +97,11 @@ li a {
  */
 
 #taskBar {
-	background: #BBC0C4;
+	background: #C3C7CB;
 	height: 20px;
 	padding: 3px 0;
 	border-top: 1px solid #FFF;
-	box-shadow: 0 -1px #BBC0C4;
+	box-shadow: 0 -1px #C3C7CB;
 	width: 100%;
 	position: fixed;
 	bottom: 0;
@@ -112,7 +121,7 @@ li a {
 }
 
 #taskBar #startButton[data-open=true] {
-	background: #BBC0C4;
+	background: #C3C7CB;
 	border-top: 2px solid #000;
 	border-left: 2px solid #000;
 	border-right: 1px solid #FFF;
@@ -141,6 +150,58 @@ li a {
 	height: 10px;
 }
 
+#taskBar #taskBarItems {
+	margin-left: 62px;
+}
+
+#taskBar .taskBarItem {
+	width: 152px;
+	height: 13px;
+	padding: 2px 3px 3px 3px;
+	background-color: #C3C7CB;
+	border-top: 1px solid #FFF;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	box-shadow: inset -1px 0 #868A8E, inset 0 -1px #868A8E;
+	margin-left: 3px;
+	float: left;
+}
+
+#taskBar .taskBarItem:active {
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	box-shadow: inset 1px 0 #868A8E, inset 0 1px #868A8E, inset -1px 0 #C3C7CB, inset 0 -1px #C3C7CB;
+}
+
+#taskBar .taskBarItem[data-status=selected] {
+	background-image: url('../img/ui/taskBarItem.png');
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	box-shadow: inset 1px 0 #868A8E, inset 0 1px #868A8E, inset -1px 0 #C3C7CB, inset 0 -1px #C3C7CB;
+}
+
+#taskBar .taskBarItem img {
+	float: left;
+	width: 16px;
+	height: 16px;
+}
+
+#taskBar .taskBarItem span {
+	float: left;
+	margin: -2px 0 0 3px;
+	font-family: 'WINDialog';
+	font-size: 18px;
+}
+
+#taskBar .taskBarItem[data-status=selected] span {
+	margin: -1px 0 0 3px;
+}
+
 #taskBar #clock {
 	width: 61px;
 	height: 19px;
@@ -165,7 +226,7 @@ li a {
 #startMenu {
 	width: 160px;
 	height: 235px;
-	background: #BBC0C4;
+	background: #C3C7CB;
 	box-shadow: 2px 2px 1px #362B2B;
 	border-top: 2px solid #F9F9F9;
 	border-left: 2px solid #F9F9F9;
@@ -204,7 +265,7 @@ li a {
 }
 
 #startMenu #startMenuRight li:hover {
-	background: #0003A0;
+	background: #0514A7;
 	color: #FFF !important;
 }
 
@@ -292,7 +353,7 @@ li a {
 }
 
 .icon[data-status=selected] span {
-	background: #0003A0;
+	background: #0514A7;
 	border: 1px dotted #FFFF03;
 	color: #FFF;
 }
@@ -312,13 +373,13 @@ li a {
 .explorer {
 	width: 500px;
 	height: 400px;
-	background: #BBC0C4;
+	background: #C3C7CB;
 	margin: 10px;
 	border-top: 1px solid #FFF;
 	border-left: 1px solid #FFF;
 	border-right: 1px solid #7B7F83;
 	border-bottom: 1px solid #7B7F83;
-	box-shadow: 1px 0 #000000, 0 1px #000000, 0 -1px #BBC0C4, -1px 0 #BBC0C4;
+	box-shadow: 1px 0 #000000, 0 1px #000000, 0 -1px #C3C7CB, -1px 0 #C3C7CB;
 	padding: 2px 3px;
 	position: absolute;
 	z-index: 4;
@@ -328,7 +389,7 @@ li a {
 	min-height: 60px;
 }
 
-.explorer[data-focus=true] {
+.explorer[data-status=selected] {
 	z-index: 5;
 }
 
@@ -340,8 +401,8 @@ li a {
 	margin: 0;
 }
 
-.explorer[data-focus=true] .explorerTitleBar {
-	background: #0003A0;
+.explorer[data-status=selected] .explorerTitleBar {
+	background: #0514A7;
 }
 
 .explorer .explorerTitleBar img {
@@ -375,7 +436,7 @@ li a {
 	border-bottom: 1px solid #7B7F83;
 	box-shadow: 1px 1px #000;
 	display: inline-block;
-	background-color: #BBC0C4;
+	background-color: #C3C7CB;
 	background-repeat: no-repeat;
 }
 
@@ -416,7 +477,7 @@ li a {
 }
 
 .explorer .explorerMenuBar li[data-open=true] {
-	background: #0003A0;
+	background: #0514A7;
 }
 
 .explorer .explorerMenuBar li[data-open=true] a {
@@ -428,9 +489,9 @@ li a {
 	box-shadow: inset 1px 0 #000, inset 0 1px #000, 1px 0 #FFF, 0 1px #FFF;
 	border-top: 1px solid #7B7F83;
 	border-left: 1px solid #7B7F83;
-	border-right: 1px solid #BBC0C4;
-	border-bottom: 1px solid #BBC0C4;
-	overflow: scroll;
+	border-right: 1px solid #C3C7CB;
+	border-bottom: 1px solid #C3C7CB;
+	overflow: hidden;
 }
 
 .explorer .explorerStatusBar {
@@ -448,7 +509,7 @@ li a {
 .explorer .explorerStatusBarLeft {
 	width: 142px;
 	height: 15px;
-	background: #BBC0C4;
+	background: #C3C7CB;
 	border-top: 1px solid #7B7F83;
 	border-left: 1px solid #7B7F83;
 	border-right: 1px solid #FFF;
@@ -461,18 +522,9 @@ li a {
 	float: left;
 	margin-left: 2px;
 	height: 15px;
-	background: #BBC0C4;
+	background: #C3C7CB;
 	border-top: 1px solid #7B7F83;
 	border-left: 1px solid #7B7F83;
 	border-right: 1px solid #FFF;
 	border-bottom: 1px solid #FFF;
-}
-
-::selection {
-	background: #0514A7 !important;
-	color: #FFF;
-}
-::-moz-selection {
-	background: #0514A7;
-	color: #FFF;
 }

@@ -8,7 +8,7 @@ WIN95.templates = {
 	+ '</div>',
 
 	explorer:
-	'<div class="explorer" data-explorer="{{ID}}" data-focus="true">'
+	'<div class="explorer" data-window="{{ID}}" data-status="selected">'
 		+ '<div class="explorerTitleBar">'
 			+ '<img src="img/icons/{{image}}.ico" alt="" />'
 			+ '<span>{{title}}</span>'
@@ -29,6 +29,12 @@ WIN95.templates = {
 			+ '<div class="explorerStatusBarLeft"><span></span></div>'
 			+ '<div class="explorerStatusBarRight"><span></span></div>'
 		+ '</div>'
+	+ '</div>',
+
+	taskBarItem:
+	'<div class="taskBarItem" data-taskBarItem="{{ID}}" data-status="normal">'
+		+ '<img src="img/icons/{{image}}.ico" alt="" />'
+		+ '<span>{{title}}</span>'
 	+ '</div>'
 
 }
