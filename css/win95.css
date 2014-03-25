@@ -166,6 +166,9 @@ li a {
 	box-shadow: inset -1px 0 #868A8E, inset 0 -1px #868A8E;
 	margin-left: 3px;
 	float: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 #taskBar .taskBarItem:active {
@@ -186,20 +189,21 @@ li a {
 }
 
 #taskBar .taskBarItem img {
-	float: left;
 	width: 16px;
 	height: 16px;
 }
 
 #taskBar .taskBarItem span {
-	float: left;
-	margin: -2px 0 0 3px;
+	margin: 0 0 0 3px;
+	position: relative;
+	bottom: 4px;
 	font-family: 'WINDialog';
 	font-size: 18px;
 }
 
 #taskBar .taskBarItem[data-status=selected] span {
-	margin: -1px 0 0 3px;
+	position: relative;
+	bottom: 3px;
 }
 
 #taskBar #clock {
@@ -233,7 +237,7 @@ li a {
 	position: absolute;
 	left: 2px;
 	bottom: 26px;
-	z-index: 2;
+	z-index: 6;
 	display: none;
 }
 
@@ -399,6 +403,9 @@ li a {
 	height: 16px;
 	padding: 1px 0;
 	margin: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .explorer[data-status=selected] .explorerTitleBar {

@@ -104,7 +104,8 @@ $('#startMenuRight li').hover(function() {
  * Desktop
  */
 
-$(document).mousedown(function(e) {
+$(document)
+.mousedown(function(e) {
 	var defocus = [
 		$(e.target).parents('.icon').length,
 		$(e.target).parents('#startMenu').length,
@@ -125,8 +126,12 @@ $(document).mousedown(function(e) {
 		}
 	}
 })
-
-$(document).bind('contextmenu', function(e) {
+.keypress(function(e) {
+	if (e.which === 13) {
+		$('.icon[data-status=selected]').dblclick()
+	}
+})
+.bind('contextmenu', function(e) {
 	return false
 })
 
