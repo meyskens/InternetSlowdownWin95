@@ -14,7 +14,7 @@ WIN95.explorer.prototype = {
 	},
 	draggableOptions: {
 		containment: 'window',
-		handle: '.explorerTitleBar'
+		handle: '.windowTitleBar'
 	},
 	render: function(renderTarget) {
 		var _this = this
@@ -49,7 +49,6 @@ WIN95.explorer.prototype = {
 				.attr('data-status', 'selected')
 		})
 		.on('remove', function() {
-			console.log(_this.ID)
 			$('[data-taskBarItem=' + _this.ID + ']').remove()
 		})
 		.css({
@@ -68,16 +67,16 @@ WIN95.explorer.prototype = {
 		this.postRender(element)
 	},
 	postRender: function(element) {
-		$(element).find('.explorerTitleBarClose').click(function() {
+		$(element).find('.windowTitleBarClose').click(function() {
 			$(this).parent().parent().parent().remove()
 		})
-		$(element).find('.explorerMenuBar li').mouseenter(function() {
-			if ($('.explorerMenuBar li[data-open=true]').length) {
+		$(element).find('.windowMenuBar li').mouseenter(function() {
+			if ($('.windowMenuBar li[data-open=true]').length) {
 				$(this).mousedown()
 			}
 		})
-		$(element).find('.explorerMenuBar li').mousedown(function() {
-			$('.explorerMenuBar li').attr('data-open', 'false')
+		$(element).find('.windowMenuBar li').mousedown(function() {
+			$('.windowMenuBar li').attr('data-open', 'false')
 			if ($(this).attr('data-open') === 'true') {
 				$(this).attr('data-open', 'false')
 			}

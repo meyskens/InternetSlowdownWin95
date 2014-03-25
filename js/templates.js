@@ -8,17 +8,17 @@ WIN95.templates = {
 	+ '</div>',
 
 	explorer:
-	'<div class="explorer" data-window="{{ID}}" data-status="selected">'
-		+ '<div class="explorerTitleBar">'
+	'<div class="window explorer" data-window="{{ID}}" data-status="selected">'
+		+ '<div class="windowTitleBar">'
 			+ '<img src="img/icons/{{image}}.ico" alt="" />'
 			+ '<span>{{title}}</span>'
-			+ '<div class="explorerTitleBarButtons">'
-				+ '<div class="explorerTitleBarMinimize"></div>'
-				+ '<div class="explorerTitleBarMaximize"></div>'
-				+ '<div class="explorerTitleBarClose"></div>'
+			+ '<div class="windowTitleBarButtons">'
+				+ '<div class="windowTitleBarMinimize"></div>'
+				+ '<div class="windowTitleBarMaximize"></div>'
+				+ '<div class="windowTitleBarClose"></div>'
 			+ '</div>'
 		+ '</div>'
-		+ '<ul class="explorerMenuBar">'
+		+ '<ul class="windowMenuBar">'
 			+ '<li data-open="false"><a href="#"><u>F</u>ile</a></li>'
 			+ '<li data-open="false"><a href="#"><u>E</u>dit</a></li>'
 			+ '<li data-open="false"><a href="#"><u>V</u>iew</a></li>'
@@ -35,6 +35,21 @@ WIN95.templates = {
 	'<div class="taskBarItem" data-taskBarItem="{{ID}}" data-status="normal">'
 		+ '<img src="img/icons/{{image}}.ico" alt="" />'
 		+ '<span>{{title}}</span>'
-	+ '</div>'
+	+ '</div>',
+
+	dialogBox:
+	'<div class="window dialogBox" data-window="{{ID}}" data-status="selected">'
+		+ '<div class="windowTitleBar">'
+			+ '<span>{{title}}</span>'
+			+ '<div class="windowTitleBarButtons">'
+				+ '<div class="windowTitleBarClose"></div>'
+			+ '</div>'
+		+ '</div>'
+		+ '<div class="dialogBoxContents">'
+			+ '<img src="img/icons/{{image}}.ico" alt="" />'
+			+ '<span>{{text}}</span>'
+			+ '<div class="dialogBoxButtons"></div>'
+		+ '</div>'
+	+ '</div>',
 
 }

@@ -9,8 +9,8 @@ WIN95.icon.prototype = {
 	constructor: WIN95.icon,
 	set: function(data) {
 		this.ID     = data.ID
-		this.text   = data.text
 		this.image  = data.image
+		this.text   = data.text
 		this.rename = data.rename
 		return this
 	},
