@@ -35,6 +35,7 @@ WIN95.desktopIcons.recycleBin.set({
  */
 
 window.setTimeout(function() {
+	$('[data-icon=myComputer]').dblclick()
 	WIN95.explorerIcons = {}
 
 	WIN95.explorerIcons.A = new WIN95.icon()
@@ -50,6 +51,6 @@ window.setTimeout(function() {
 		image: 'shell32_9',
 		text: '(C:)'
 	}).render('.explorerContents')
-}, 5000)
+}, 1000)
 
 })
