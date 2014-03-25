@@ -334,6 +334,8 @@ li a {
 	text-align: center;
 	font-size: 11px;
 	margin: 0 auto;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .icon textarea {
@@ -403,9 +405,6 @@ li a {
 	height: 16px;
 	padding: 1px 0;
 	margin: 0;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
 }
 
 .explorer[data-status=selected] .explorerTitleBar {
@@ -425,6 +424,11 @@ li a {
 	position: relative;
 	bottom: 4px;
 	left: 4px;
+	width: 60%;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .explorer .explorerTitleBarButtons {
