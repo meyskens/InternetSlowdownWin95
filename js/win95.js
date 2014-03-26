@@ -1,6 +1,7 @@
 var WIN95 = {}
 
 $(function() {
+'use strict';
 
 // The Microsoft Sound
 // (new Audio('mp3/win95.mp3')).play()

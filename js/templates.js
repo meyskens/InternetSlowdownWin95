@@ -1,3 +1,5 @@
+'use strict';
+
 WIN95.templates = {
 
 	icon:

@@ -1,3 +1,5 @@
+'use strict';
+
 WIN95.explorer = function() {
 	this.ID    = null
 	this.image = 'regedit_201'

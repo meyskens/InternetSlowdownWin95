@@ -1,3 +1,5 @@
+'use strict';
+
 WIN95.dialogBox = function() {
 	this.ID      = null
 	this.image   = 'regedit_201'

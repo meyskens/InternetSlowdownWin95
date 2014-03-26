@@ -1,3 +1,5 @@
+'use strict';
+
 WIN95.icon = function() {
 	this.ID     = null
 	this.image  = 'ftmcl_4500'
