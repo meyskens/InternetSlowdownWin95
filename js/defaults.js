@@ -37,13 +37,21 @@ WIN95.desktopIcons.recycleBin.set({
 
 var dialog = new WIN95.dialogBox()
 dialog.set({
-	ID:    WIN95.getUniqueID(),
-	image: 'awfxex32_INFO',
-	title: 'Are you lying?',
-	text:  'I have to clean up this mess you\'ve made.'
+	ID:      WIN95.getUniqueID(),
+	image:   'access_219',
+	title:   'Windows Fun Time',
+	text:    'Want to see a magic trick?',
+	buttons: {
+		'Continue': function(button) {
+			//alert('wow!')
+		},
+		'Cancel': function(button) {
+			//alert('wow!')
+		}
+	}
 }).render()
 
-/*window.setTimeout(function() {
+window.setTimeout(function() {
 	$('[data-icon=myComputer]').dblclick()
 	WIN95.explorerIcons = {}
 
@@ -60,6 +68,6 @@ dialog.set({
 		image: 'shell32_9',
 		text:  '(C:)'
 	}).render('.explorerContents')
-}, 1000) */
+}, 1000)
 
 })

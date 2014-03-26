@@ -53,6 +53,17 @@ WIN95.dialogBox.prototype = {
 			'height': '115px'
 		})
 		.mousedown()
+		for (var b in _this.buttons) {
+			if (_this.buttons.hasOwnProperty(b)) {
+				$(element).find('.dialogBoxButtons').append(
+					$('<div/>').append(
+						$('<span/>').text(b).click(function() {
+							_this.buttons[b]($(this))
+						})
+					)
+				)
+			}
+		}
 		this.postRender(element)
 	},
 	postRender: function(element) {

@@ -405,6 +405,7 @@ li a {
 	height: 16px;
 	padding: 1px 0;
 	margin: 0;
+	text-align: left;
 }
 
 *[data-status=selected] .windowTitleBar {
@@ -451,7 +452,7 @@ li a {
 	background-repeat: no-repeat;
 }
 
-.windowTitleBarButtons div:active {
+.windowTitleBarButtons div[data-status=enabled]:active {
 	box-shadow: inset 1px 0 #7B7F83, inset 0 1px #7B7F83;
 	border-top: 1px solid #000;
 	border-left: 1px solid #000;
@@ -472,6 +473,10 @@ li a {
 .windowTitleBarClose {
 	background-image: url('../img/ui/close.png');
 	margin-left: 2px;
+}
+
+.windowTitleBarClose[data-status=disabled] {
+	background-image: url('../img/ui/closeDisabled.png');
 }
 
 .windowMenuBar {
@@ -549,6 +554,14 @@ li a {
  * Dialog box
  */
 
+.dialogBox {
+	text-align: center;
+}
+
+.dialogBox .dialogBoxContents {
+	min-height: 60px;
+}
+
 .dialogBox .dialogBoxContents img {
 	margin: 12px 0 12px 12px;
 	float: left;
@@ -556,8 +569,47 @@ li a {
 
 .dialogBox .dialogBoxContents span {
 	font-size: 11px;
-	margin: 21px 9px 0 0;
+	margin: 21px 9px 0 30px;
 	display: block;
 	text-align: center;
-	float: right;
+	float: left;
+}
+
+.dialogBox .dialogBoxButtons {
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.dialogBox .dialogBoxButtons div {
+	width: 69px;
+	height: 18px;
+	font-size: 11px;
+	background: #C3C7CB;
+	box-shadow: inset -1px 0 #757575, 0 0 0 1px #000, 1px 0 #000;
+	border-top: 1px solid #FFF;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	text-align: center;
+	display: inline-block;
+	margin-right: 8px;
+}
+
+.dialogBox .dialogBoxButtons div:active {
+	box-shadow: 0 0 0 1px #000;
+	border: 1px solid #7B7F83;
+}
+
+.dialogBox .dialogBoxButtons div span {
+	/*border: 1px dotted #000;*/
+	width: 90%;
+	display: block;
+	margin: 2px auto 0 auto;
+}
+
+.dialogBox .dialogBoxButtons div:active span {
+	border: 1px dotted #000;
+	margin: 3px auto 0 auto;
+	position: relative;
+	left: 1px;
 }
