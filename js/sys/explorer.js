@@ -44,7 +44,7 @@ WIN95.explorer.prototype = {
 			$(this).find('.explorerStatusBarRight').width(width - 149)
 		})
 		.mousedown(function() {
-			$('.explorer').attr('data-status', 'normal')
+			$('[data-window]').attr('data-status', 'normal')
 			$('.taskBarItem').attr('data-status', 'normal')
 			$(this).attr('data-status', 'selected')
 			$('[data-taskBarItem=' + _this.ID + ']')
