@@ -12,8 +12,9 @@ $(function() {
 
 // Get time (AM/PM format)
 var currentTime = function() {
-	var hours = (new Date()).getHours()
-	var minutes = (new Date()).getMinutes()
+	var dateObject = new Date()
+	var hours = dateObject.getHours()
+	var minutes = dateObject.getMinutes()
 	var ampm = hours >= 12 ? 'PM' : 'AM'
 	hours = hours % 12
 	hours = hours ? hours : 12
