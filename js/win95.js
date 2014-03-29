@@ -77,7 +77,7 @@ WIN95.taskBarItem.prototype = {
 		.mousedown(function(e) {
 			$('.taskBarItem').attr('data-status', 'normal')
 			$(this).attr('data-status', 'selected')
-			$('[data-window=' + _this.ID + ']').mousedown()
+			$('[data-window=' + _this.ID + ']').show().mousedown()
 		})
 		.appendTo('#taskBarItems')
 		.attr('data-status', 'selected')

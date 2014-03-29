@@ -69,8 +69,21 @@ WIN95.explorer.prototype = {
 		this.postRender(element)
 	},
 	postRender: function(element) {
+		$(element).find('.windowTitleBarMinimize').click(function() {
+			$(element).hide()
+			$('[data-taskBarItem=' + $(element).attr('data-window') + ']')
+				.attr('data-status', 'normal')
+		})
+		$(element).find('.windowTitleBarMaximize').click(function() {
+			$(element).width($('#desktop').width())
+			$(element).height($('#desktop').height()).resize()
+			$(element).css({
+				top: 0,
+				left: 0
+			})
+		})
 		$(element).find('.windowTitleBarClose').click(function() {
-			$(this).parent().parent().parent().remove()
+			$(element).remove()
 		})
 		$(element).find('.windowMenuBar li').mouseenter(function() {
 			if ($('.windowMenuBar li[data-open=true]').length) {
