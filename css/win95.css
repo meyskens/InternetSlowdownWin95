@@ -599,6 +599,8 @@ li a {
 .dialogBox .dialogBoxButtons div:active {
 	box-shadow: 0 0 0 1px #000;
 	border: 1px solid #7B7F83;
+	position: relative;
+	top: 2px;
 }
 
 .dialogBox .dialogBoxButtons div span {
